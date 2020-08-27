@@ -1,24 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-function App() {
+
+/////////////////////////// Page Imports //////////////////////////////
+
+import Home from './pages/general/Home';
+import About from './pages/general/About';
+import UserDoc from './pages/general/UserDoc';
+import Service from './pages/general/Service';
+import Login from './pages/general/Login';
+import Register from './pages/general/Register';
+import EmptyPage from './pages/error/EmptyPage';
+
+
+import Dashboard from './pages/doctor/Dashboard';
+
+////////////////////////// Component Imports //////////////////////////
+
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+///////////////////////////////////////////////////////////////////////
+
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/how-it-works' component={UserDoc} />
+          <Route exact path='/services' component={Service} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/app/doctor' component={Dashboard} />
+          <Route component={EmptyPage} />
+        </Switch>
+        <Footer />
+      </Router>
     </div>
   );
 }
