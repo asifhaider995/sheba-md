@@ -75,6 +75,9 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     padding: '2rem',
     paddingBottom: '3rem',
+    '&:hover': {
+      cursor: 'pointer',
+    },
     [theme.breakpoints.down('lg')]: {
       padding: '2rem',
       paddingBottom: '2rem'

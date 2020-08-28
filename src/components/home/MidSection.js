@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Typography, Paper, Icon, Button, makeStyles} from '@material-ui/core';
+import {Grid, CardActionArea, Typography, Paper, Icon, makeStyles} from '@material-ui/core';
 
 import LocalHospitalRoundedIcon from '@material-ui/icons/LocalHospitalRounded';
 import QuestionAnswerRoundedIcon from '@material-ui/icons/QuestionAnswerRounded';
@@ -67,12 +67,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     width: '100%',
     height: '100%',
-    margin: '2rem 2rem',
+    margin: '2rem 2.5rem',
     maxWidth: '33rem',
     transitionDuration: '1s',
     '&:hover': {
-      transform: 'scale(1.2)',
-      margin: '2rem 2rem'
+      transform: 'scale(1.15)',
+      margin: '2.5rem'
     },
     [theme.breakpoints.down('lg')]: {
       margin: '2rem',
@@ -194,24 +194,20 @@ function Home(props) {
           </Typography>
         </Grid>
         <Grid className={classes.serviceList}>
-          <Grid className={classes.services}>
+          <CardActionArea className={classes.services}>
             <Paper elevation={3} className={classes.servicePaper}>
               <Grid className={classes.avatarGrid}>
                 <Icon className={classes.serviceIcon}><LocalHospitalRoundedIcon /></Icon>
               </Grid>
               <Grid className={classes.serviceDescription}>
-                <Typography className={classes.serviceTypoHead} align='center' variant='h4'>Emergency</Typography>
+                <Typography className={classes.serviceTypoHead} align='center' variant='h4'>Emergency Services</Typography>
                 <Typography className={classes.serviceTypoDescription} align='justify' variant='body1'>
                   Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eisumod tempor in cididunt ut labore et dlore magnus
                 </Typography>
               </Grid>
-              <Grid className={classes.serviceActions}>
-                <Button className={classes.leftBtn} variant='contained'>Get Started</Button>
-                <Button className={classes.rightBtn} variant='contained'>Read More</Button>
-              </Grid>
             </Paper>
-          </Grid>
-          <Grid className={classes.services}>
+          </CardActionArea>
+          <CardActionArea className={classes.services}>
             <Paper elevation={3} className={classes.servicePaper}>
               <Grid className={classes.avatarGrid}>
                 <Icon className={classes.serviceIcon}><QuestionAnswerRoundedIcon /></Icon>
@@ -222,13 +218,9 @@ function Home(props) {
                   Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eisumod tempor in cididunt ut labore et dlore magnus
                 </Typography>
               </Grid>
-              <Grid className={classes.serviceActions}>
-                <Button className={classes.leftBtn} variant='contained'>Get Started</Button>
-                <Button className={classes.rightBtn} variant='contained'>Read More</Button>
-              </Grid>
             </Paper>
-          </Grid>
-          <Grid className={classes.services}>
+          </CardActionArea>
+          <CardActionArea className={classes.services}>
             <Paper elevation={3} className={classes.servicePaper}>
               <Grid className={classes.avatarGrid}>
                 <Icon className={classes.serviceIcon}>
@@ -241,12 +233,8 @@ function Home(props) {
                   Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eisumod tempor in cididunt ut labore et dlore magnus
                 </Typography>
               </Grid>
-              <Grid className={classes.serviceActions}>
-                <Button className={classes.leftBtn} variant='contained'>Get Started</Button>
-                <Button className={classes.rightBtn} variant='contained'>Read More</Button>
-              </Grid>
             </Paper>
-          </Grid>
+          </CardActionArea>
         </Grid>
       </Grid>
     </Grid>

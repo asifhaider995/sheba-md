@@ -64,10 +64,10 @@ const useStyles = makeStyles((theme)=>({
     color: 'white',
     height: '100%',
     width: '100%',
-    maxWidth: '40rem',
+    maxWidth: '39rem',
     paddingTop: '20rem',
     textAlign: 'left',
-    marginLeft: '5rem',
+    marginLeft: '6rem',
     [theme.breakpoints.down('md')]: {
       maxWidth: '25rem',
       paddingTop: '20rem',
@@ -91,6 +91,7 @@ const useStyles = makeStyles((theme)=>({
   contentHead: {
     fontFamily: 'Roboto Slab',
     fontWeight: 400,
+    fontSize: '96px',
     [theme.breakpoints.down('md')]: {
       fontSize: '60px'
     },
@@ -103,7 +104,7 @@ const useStyles = makeStyles((theme)=>({
   },
   contentSubHead: {
     fontFamily: 'Saira Semi Condensed',
-    fontSize: '28px',
+    fontSize: '32px',
     fontStyle: 'italic',
     [theme.breakpoints.down('md')]: {
       fontSize: '22px'
@@ -149,8 +150,8 @@ function Top(props) {
           <CardMedia className={classes.media} image={Background}>
             <Grid className={classes.contentGrid}>
               <Grid className={classes.content}>
-                <Typography variant='h1' className={classes.contentHead}> ShebaMD </Typography>
-                <Typography className={classes.contentSubHead}> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </Typography>
+                <Typography className={classes.contentHead}> ShebaMD </Typography>
+                <Typography className={classes.contentSubHead}> Doctors who understand you. </Typography>
                 <Button className={classes.actionBtn}> Get Started </Button>
               </Grid>
             </Grid>
