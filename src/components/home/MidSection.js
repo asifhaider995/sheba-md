@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     [theme.breakpoints.down('sm')]: {
-      maxWidth: '99%',
+      maxWidth: '100%',
       margin: '1.5rem 0',
       '&:hover': {
         transform: 'scale(1)',
