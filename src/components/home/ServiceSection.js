@@ -1,8 +1,8 @@
 import React from 'react';
-import {Grid, Typography, Paper, CardMedia, fade, makeStyles} from '@material-ui/core';
+import {Grid, Typography, Paper, Button, CardMedia, fade, makeStyles} from '@material-ui/core';
 import '../../index.css';
 
-import Img from '../../assets/about/Doctor5.jpg';
+import Img from '../../assets/about/Doctor4.jpg';
 
 const useStyles = makeStyles((theme)=>({
   root: {
@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme)=>({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '4rem 0',
-    background: fade('#0b86ac', 0.2),
+    padding: '5rem 0',
+    background: fade(theme.palette.info.light, 0.3),
   },
   mainInner: {
     width: '77rem',
@@ -82,15 +82,18 @@ const useStyles = makeStyles((theme)=>({
     height: '100%',
     padding: '1rem',
     margin: '0 1rem',
+    marginLeft: '2rem',
     [theme.breakpoints.down('md')]: {
       width: '100%',
       maxWidth: '30rem',
-      margin: '1rem 0'
+      margin: '1rem 0',
+      marginLeft: '1rem',
     },
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       maxWidth: '24rem',
-      margin: '1rem 0'
+      margin: '1rem 0',
+      marginLeft: 0,
     },
     [theme.breakpoints.down('xs')]: {
       width: '100%',
@@ -142,10 +145,18 @@ const useStyles = makeStyles((theme)=>({
     height: '100%',
   },
   textBody: {
-    fontSize: '14px',
+    fontSize: '18px',
     textAlign: 'left',
     margin: '1rem 0',
-    fontFamily: 'Open Sans'
+    fontFamily: 'Open Sans',
+    [theme.breakpoints.down('md')]: {
+      marginRight: '1rem'
+    }
+  },
+  actionBtn: {
+    margin: '2rem 0',
+    background: theme.palette.info.dark,
+    color: 'white',
   }
 
 }))
@@ -154,7 +165,12 @@ const useStyles = makeStyles((theme)=>({
 function MidSection(props) {
   const invert = props.invert ? props.invert : false;
   const image = props.image ? props.image : Img;
+  const textHead = props.textHead;
+  const textBody = props.textBody;
   const classes = useStyles();
+
+
+
   return (
     <Grid id='mid-section-one' className={classes.root}>
       <Grid className={classes.mainInner}>
@@ -164,24 +180,15 @@ function MidSection(props) {
           </Grid>
           <Grid className={invert? classes.textSectionGridInv : classes.textSectionGrid} id='textGrid'>
             <Grid className={classes.textHeadGrid}>
-              <Typography variant='h4' className={classes.textHeading}> Lorem Ipsum dolor sit amet, consectetur ad. </Typography>
+              <Typography variant='h4' className={classes.textHeading}>
+                <div>{textHead}</div>
+              </Typography>
             </Grid>
             <Grid className={classes.textBodyGrid}>
-              <Typography className={classes.textBody}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </Typography>
-              <Typography className={classes.textBody}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </Typography>
-              <Typography className={classes.textBody}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit.
-              </Typography>
+            <Typography className={classes.textBody} style={{whitespace: 'pre-line'}}>
+              {textBody}
+            </Typography>
+            <Button variant='contained' size='large' color='secondary' className={classes.actionBtn}> Service Details </Button>
             </Grid>
           </Grid>
         </Paper>

@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme)=>({
     }
   },
   media: {
-    height: '22rem',
+    height: '26rem',
     width: '100%',
     borderRadius: '1rem',
   },

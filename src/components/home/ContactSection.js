@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: '3rem'
     },
     [theme.breakpoints.down('xs')]: {
-      maxWidth: '20rem',
+      maxWidth: '22rem',
     }
   },
   mapGrid: {
@@ -113,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('xs')]: {
       height: '25rem',
-      width: '18rem'
+      width: '19rem'
     }
   },
   contactForm: {

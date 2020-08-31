@@ -1,8 +1,18 @@
 import React, {useState} from 'react';
-import { fade, makeStyles, AppBar, Toolbar, IconButton, Typography, InputBase, Menu, MenuItem, Grid } from '@material-ui/core';
+
+
+import { fade, makeStyles, AppBar, Toolbar,
+  Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, ListSubheader,
+  IconButton, Typography, InputBase, Grid } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import HomeIcon from '@material-ui/icons/Home';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import InfoIcon from '@material-ui/icons/Info';
+import HelpIcon from '@material-ui/icons/Help';
+import PeopleIcon from '@material-ui/icons/People';
+
 import '../index.css';
 import {NavLink} from 'react-router-dom';
 
@@ -118,78 +128,105 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navBtnMobile: {
-    color: '#0B86AC',
+    color: '#252626',
     fontSize: '16px',
     fontFamily: 'Roboto',
+    textDecoration: 'none'
+  },
+  list: {
+    width: '16rem'
   }
 }));
 
 export default function Navbar() {
   const classes = useStyles();
 
-  const [mobileAnchorEl, setMobileAnchorEl] = useState(null);
+  const [drawer, setDrawer] = useState(false)
 
-  const isMobileMenuOpen = Boolean(mobileAnchorEl);
-
-
-  const handleMobileMenuClose = () => {
-    setMobileAnchorEl(null);
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileAnchorEl(event.currentTarget);
-  };
-
-  const activeNavStyleMobile = {
-    fontWeight: 'bold',
-    textDecoration: 'none',
-    color: '#0B86AC'
-
+  const handleDrawerOpen = (event) => {
+    setDrawer(true);
   }
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
+  const handleDrawerClose = (event) => {
+    setDrawer(false);
+  }
+
+  const mobileDrawerId = 'primary-search-account-drawer-mobile';
+  const renderMobileDrawer = (
+    <Drawer
+      id={mobileDrawerId}
+      open={drawer}
+      onClose={handleDrawerClose}
+      anchor="left"
     >
-      <MenuItem onClick={handleMobileMenuClose}>
-        <NavLink exact to='/' style={{textDecoration: 'none', color: 'none'}} activeStyle={activeNavStyleMobile}>
-          <Typography className={classes.navBtnMobile} align='center'>Home</Typography>
-        </NavLink>
-      </MenuItem>
-      <MenuItem onClick={handleMobileMenuClose}>
-        <NavLink exact to='/about' style={{textDecoration: 'none'}} activeStyle={activeNavStyleMobile}>
-          <Typography className={classes.navBtnMobile} align='center'>About</Typography>
-        </NavLink>
-      </MenuItem>
-      <MenuItem onClick={handleMobileMenuClose}>
-        <NavLink exact to='/how-it-works' style={{textDecoration: 'none'}} activeStyle={activeNavStyleMobile}>
-          <Typography className={classes.navBtnMobile} align='center'>How it works</Typography>
-        </NavLink>
-      </MenuItem>
-      <MenuItem onClick={handleMobileMenuClose}>
-        <NavLink exact to='/services' style={{textDecoration: 'none'}} activeStyle={activeNavStyleMobile}>
-          <Typography className={classes.navBtnMobile} align='center' >Services</Typography>
-        </NavLink>
-      </MenuItem>
-      <MenuItem onClick={handleMobileMenuClose}>
-        <NavLink exact to='/login' style={{textDecoration: 'none'}} activeStyle={activeNavStyleMobile}>
-          <Typography align='center' className={classes.navBtnMobile}>Login</Typography>
-        </NavLink>
-      </MenuItem>
-      <MenuItem onClick={handleMobileMenuClose}>
-        <NavLink exact to='/register' style={{textDecoration: 'none'}} activeStyle={activeNavStyleMobile}>
-          <Typography align='center' className={classes.navBtnMobile}>Sign up</Typography>
-        </NavLink>
-      </MenuItem>
-    </Menu>
-  );
+      <div
+        className={classes.list}
+        role="presentation"
+        onKeyDown={handleDrawerClose}
+      >
+        <List
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader">
+            Site Map
+          </ListSubheader>
+        }
+        >
+          <NavLink exact to='/' className={classes.navBtnMobile} activeStyle={{color: '#0B86AC', textDecoration: 'none'}}>
+            <ListItem
+              button
+              onClick={handleDrawerClose}
+            >
+              <ListItemIcon> <HomeIcon /> </ListItemIcon>
+              <ListItemText>Home</ListItemText>
+            </ListItem>
+          </NavLink>
+          <NavLink exact to='/about' className={classes.navBtnMobile} activeStyle={{color: '#0B86AC', textDecoration: 'none'}}>
+            <ListItem
+              button
+              onClick={handleDrawerClose}
+            >
+              <ListItemIcon> <InfoIcon /> </ListItemIcon>
+              <ListItemText>About</ListItemText>
+            </ListItem>
+          </NavLink>
+          <NavLink exact to='/how-it-works' className={classes.navBtnMobile} activeStyle={{color: '#0B86AC', textDecoration: 'none'}}>
+            <ListItem
+              button
+              onClick={handleDrawerClose}
+            >
+              <ListItemIcon> <HelpIcon /> </ListItemIcon>
+              <ListItemText>How it works?</ListItemText>
+            </ListItem>
+          </NavLink>
+          <NavLink exact to='/services' className={classes.navBtnMobile} activeStyle={{color: '#0B86AC', textDecoration: 'none'}}>
+            <ListItem
+              button
+              onClick={handleDrawerClose}
+            >
+              <ListItemIcon> <PeopleIcon /> </ListItemIcon>
+              <ListItemText>Services</ListItemText>
+            </ListItem>
+          </NavLink>
+        </List>
+        <Divider />
+        <List>
+          <NavLink exact to='/login' className={classes.navBtnMobile} activeStyle={{color: '#0B86AC', textDecoration: 'none'}}>
+            <ListItem button onClick={handleDrawerClose}>
+              <ListItemIcon> <LockOpenIcon /> </ListItemIcon>
+              <ListItemText> Login </ListItemText>
+            </ListItem>
+          </NavLink>
+          <NavLink exact to='/register' className={classes.navBtnMobile} activeStyle={{color: '#0B86AC', textDecoration: 'none'}}>
+            <ListItem button onClick={handleDrawerClose}>
+              <ListItemIcon> <ExitToAppIcon /></ListItemIcon>
+              <ListItemText> Sign Up </ListItemText>
+            </ListItem>
+          </NavLink>
+        </List>
+      </div>
+    </Drawer>
+  )
+
 
   const activeNavStyle = {
     textDecoration: 'none',
@@ -205,6 +242,7 @@ export default function Navbar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            onClick={handleDrawerOpen}
           >
             <MenuIcon />
           </IconButton>
@@ -260,20 +298,9 @@ export default function Navbar() {
               </NavLink>
             </Grid>
           </Grid>
-          <Grid className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Grid>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
+      {renderMobileDrawer}
     </Grid>
   );
 }
