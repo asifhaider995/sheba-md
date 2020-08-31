@@ -181,7 +181,7 @@ function MidSection(props) {
           <Grid className={invert? classes.textSectionGridInv : classes.textSectionGrid} id='textGrid'>
             <Grid className={classes.textHeadGrid}>
               <Typography variant='h4' className={classes.textHeading}>
-                <div>{textHead}</div>
+                {textHead}
               </Typography>
             </Grid>
             <Grid className={classes.textBodyGrid}>
