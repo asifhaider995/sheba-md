@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Grid, makeStyles} from '@material-ui/core';
 
 import TopSection from '../../components/home/TopSection';
@@ -6,6 +6,9 @@ import MidSection from '../../components/home/MidSection';
 import DoctorCards from '../../components/home/DoctorCards';
 import ContactSection from '../../components/home/ContactSection';
 import ServiceSection from '../../components/home/ServiceSection';
+
+import {Element, scroller, animateScroll} from 'react-scroll';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
@@ -81,16 +84,34 @@ const textBody3 = (
 
 function Home(props) {
 
+
+  useEffect(()=>{
+    animateScroll.scrollToTop({smooth: "easeInOutQuad"})
+  },[])
+
   const classes = useStyles();
 
+  const handleClick = (e, id) => {
+    scroller.scrollTo(id,{
+      duration: 1000,
+      delay: 10,
+      smooth: true,
+      offset: -10,
+    })
+  }
   return (
-      <Grid className={classes.root}>
+      <Grid id='home' className={classes.root}>
         <Grid className={classes.outerGrid}>
           <Grid className={classes.innerGrid}>
-            <TopSection />
-            <MidSection />
+            <TopSection handleClick={handleClick}/>
+            <Element name='service-buttons'>
+              <MidSection handleClick={handleClick}/>
+            </Element>
+            <Element name='home-emergency' />
             <ServiceSection textBody={textBody1} textHead={textHead1} invert={true}/>
+            <Element name='home-talk' />
             <ServiceSection textBody={textBody2} textHead={textHead2} />
+            <Element name='home-appointment' />
             <ServiceSection textBody={textBody3} textHead={textHead3} invert={true}/>
             <DoctorCards />
             <ContactSection />

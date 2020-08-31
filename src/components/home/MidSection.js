@@ -5,9 +5,10 @@ import LocalHospitalRoundedIcon from '@material-ui/icons/LocalHospitalRounded';
 import QuestionAnswerRoundedIcon from '@material-ui/icons/QuestionAnswerRounded';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 
+
 const useStyles = makeStyles((theme) => ({
   midSection: {
-    height: '40rem',
+    height: '35rem',
     width: '100%',
     display: 'flex',
     alignItems: 'center',
@@ -194,7 +195,7 @@ function Home(props) {
           </Typography>
         </Grid>
         <Grid className={classes.serviceList}>
-          <CardActionArea className={classes.services}>
+          <CardActionArea onClick={(e,id) => props.handleClick(e, 'home-emergency')} className={classes.services}>
             <Paper elevation={3} className={classes.servicePaper}>
               <Grid className={classes.avatarGrid}>
                 <Icon className={classes.serviceIcon}><LocalHospitalRoundedIcon /></Icon>
@@ -207,7 +208,7 @@ function Home(props) {
               </Grid>
             </Paper>
           </CardActionArea>
-          <CardActionArea className={classes.services}>
+          <CardActionArea onClick={(e,id) => props.handleClick(e, 'home-talk')} className={classes.services}>
             <Paper elevation={3} className={classes.servicePaper}>
               <Grid className={classes.avatarGrid}>
                 <Icon className={classes.serviceIcon}><QuestionAnswerRoundedIcon /></Icon>
@@ -220,7 +221,7 @@ function Home(props) {
               </Grid>
             </Paper>
           </CardActionArea>
-          <CardActionArea className={classes.services}>
+          <CardActionArea onClick={(e,id) => props.handleClick(e, 'home-appointment')} className={classes.services}>
             <Paper elevation={3} className={classes.servicePaper}>
               <Grid className={classes.avatarGrid}>
                 <Icon className={classes.serviceIcon}>

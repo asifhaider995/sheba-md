@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme)=>({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '3rem 0',
+    padding: '5rem 0',
     background: fade(theme.palette.info.light, 0.3),
   },
   mainInner: {
@@ -155,7 +155,7 @@ const useStyles = makeStyles((theme)=>({
   },
   actionBtn: {
     margin: '3.5rem 0 0 0',
-    background: theme.palette.info.dark,
+    background: theme.palette.error.dark,
     color: 'white',
   }
 
@@ -188,7 +188,7 @@ function MidSection(props) {
             <Typography className={classes.textBody} style={{whitespace: 'pre-line'}}>
               {textBody}
             </Typography>
-            <Button variant='contained' size='large' color='secondary' className={classes.actionBtn}> Service Details </Button>
+            <Button variant='contained' size='large' color='secondary' className={classes.actionBtn}> Get Started </Button>
             </Grid>
           </Grid>
         </Paper>

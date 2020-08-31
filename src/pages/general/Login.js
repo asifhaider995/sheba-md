@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Grid, Typography, Checkbox, Button, Paper, TextField, makeStyles} from '@material-ui/core';
-
+import {Link} from 'react-router-dom';
+import {animateScroll} from 'react-scroll';
 
 import Logo from '../../assets/Logo.svg';
 
@@ -81,6 +82,9 @@ const useStyles = makeStyles((theme) => ({
   },
   oAuthBtn: {
     margin: '1rem 0'
+  },
+  alter: {
+    margin: '2rem 0'
   }
 }))
 
@@ -88,19 +92,23 @@ function Login(props) {
 
   const classes = useStyles();
 
+  useEffect(()=>{
+    animateScroll.scrollToTop({smooth: "easeInOutQuad"})
+  },[])
+
   const handleSubmit = (e) => {
     e.preventDefault();
   }
 
   return (
-      <Grid className={classes.root}>
+      <Grid id='login' className={classes.root}>
         <Grid className={classes.outerGrid}>
           <Grid className={classes.innerGrid}>
             <Paper elevation={3} className={classes.formPaper}>
               <Grid className={classes.headingLabel}>
                 <img className={classes.media} src={Logo} alt='logo' />
               </Grid>
-              <Typography className={classes.mediaSub}> Log In</Typography>
+              <Typography className={classes.mediaSub}>Sign in</Typography>
               <Grid className={classes.formGrid}>
                 <form onSubmit={handleSubmit}>
                   <TextField
@@ -126,6 +134,9 @@ function Login(props) {
                   </Grid>
                   <Button color='primary' variant='contained' fullWidth className={classes.submitBtn}> Log In </Button>
                 </form>
+              </Grid>
+              <Grid className={classes.alter}>
+                <Typography align='center' variant='body1'> Don't have an account? <Link to='/register'> Sign Up </Link></Typography>
               </Grid>
               <Grid className={classes.oAuth}>
                 <hr />

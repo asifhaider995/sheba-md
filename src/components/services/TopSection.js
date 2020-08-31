@@ -53,7 +53,7 @@ function TopSection(props) {
   const classes = useStyles();
 
   return (
-    <Grid id='top-section' className={classes.root}>
+    <Grid className={classes.root}>
       <Grid className={classes.topSectionInner}>
         <Grid className={classes.typoScreen}>
           <Grid className={classes.typoGrid}>

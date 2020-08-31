@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Grid, makeStyles} from '@material-ui/core';
 import '../../index.css';
 
@@ -7,6 +7,8 @@ import MidSection from '../../components/about/MidSection';
 import DiffSection from '../../components/about/DiffSection';
 
 import Doctor from '../../assets/about/Doctor2.jpg';
+
+import {animateScroll} from 'react-scroll';
 
 const useStyles = makeStyles((theme)=>({
   root: {
@@ -28,10 +30,14 @@ const useStyles = makeStyles((theme)=>({
 
 function About(props) {
 
-  const classes = useStyles();
 
+  useEffect(()=>{
+    animateScroll.scrollToTop({smooth: "easeInOutQuad", delay: 200})
+  },[])
+
+  const classes = useStyles();
   return (
-      <Grid className={classes.root}>
+      <Grid id='about' className={classes.root}>
         <Grid className={classes.outerGrid}>
           <Grid className={classes.innerGrid}>
             <TopSection {...props}/>

@@ -100,8 +100,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '0 1rem',
   },
   avatar: {
-    height: '8rem',
-    width: '8rem'
+    height: '10rem',
+    width: '10rem'
   },
   cardContent: {
   },
@@ -121,7 +121,8 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   cardBody: {
-
+    fontFamily: 'Open Sans',
+    fontSize: '14px'
   },
   cardActionSection: {
     display: 'flex',

@@ -15,7 +15,6 @@ import PeopleIcon from '@material-ui/icons/People';
 
 import '../index.css';
 import {NavLink} from 'react-router-dom';
-
 import Logo from '../assets/Logo.svg';
 
 const useStyles = makeStyles((theme) => ({
@@ -105,6 +104,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '0 1rem',
   },
   navBtn: {
+    padding: '.34rem 0',
+    textDecoration: 'none',
     color: '#0B86AC',
     fontSize: '16px',
     fontFamily: 'Roboto Slab',
@@ -230,7 +231,8 @@ export default function Navbar() {
 
   const activeNavStyle = {
     textDecoration: 'none',
-    borderBottom: '2px solid #0B86AC'
+    borderBottom: '2px solid #0B86AC',
+    '&:hover': {}
   }
 
   return (
@@ -267,34 +269,34 @@ export default function Navbar() {
           <Grid className={classes.spacing} />
           <Grid className={classes.sectionDesktop}>
             <Grid className={classes.navBtnGrid}>
-              <NavLink exact to='/' style={{textDecoration: 'none'}} activeStyle={activeNavStyle}>
-                <Typography className={classes.navBtn}> Home </Typography>
+              <NavLink exact to='/' className={classes.navBtn} activeStyle={activeNavStyle}>
+                Home
               </NavLink>
             </Grid>
             <Grid className={classes.navBtnGrid}>
-              <NavLink exact to='/about' style={{textDecoration: 'none'}} activeStyle={activeNavStyle}>
-                <Typography className={classes.navBtn}> About </Typography>
+              <NavLink exact to='/about' className={classes.navBtn} activeStyle={activeNavStyle}>
+                About
               </NavLink>
             </Grid>
             <Grid className={classes.navBtnGrid}>
-              <NavLink exact to='/how-it-works' style={{textDecoration: 'none'}} activeStyle={activeNavStyle}>
-                <Typography className={classes.navBtn}> How it works </Typography>
+              <NavLink exact to='/how-it-works' className={classes.navBtn} activeStyle={activeNavStyle}>
+                How it works
               </NavLink>
             </Grid>
             <Grid className={classes.navBtnGrid}>
-              <NavLink exact to='/services' style={{textDecoration: 'none'}} activeStyle={activeNavStyle}>
-                <Typography className={classes.navBtn}> Services </Typography>
+              <NavLink exact to='/services' className={classes.navBtn} activeStyle={activeNavStyle}>
+                Services
               </NavLink>
             </Grid>
             <Grid className={classes.navBtnGrid}>
-              <NavLink exact to='/login' style={{textDecoration: 'none'}} activeStyle={activeNavStyle}>
-                <Typography className={classes.navBtn}> Login </Typography>
+              <NavLink exact to='/login' className={classes.navBtn} activeStyle={activeNavStyle}>
+                Login
               </NavLink>
             </Grid>
             <Typography className={classes.navBtnDumb}> or </Typography>
             <Grid className={classes.navBtnGrid}>
-              <NavLink exact to='/register' style={{textDecoration: 'none'}} activeStyle={activeNavStyle}>
-                <Typography className={classes.navBtn}> Sign up </Typography>
+              <NavLink exact to='/register' className={classes.navBtn} activeStyle={activeNavStyle}>
+                Sign up
               </NavLink>
             </Grid>
           </Grid>

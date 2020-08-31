@@ -152,7 +152,7 @@ function Top(props) {
               <Grid className={classes.content}>
                 <Typography className={classes.contentHead}> ShebaMD </Typography>
                 <Typography className={classes.contentSubHead}> Doctors who understand you. </Typography>
-                <Button className={classes.actionBtn}> Get Started </Button>
+                <Button onClick={(e,id) => props.handleClick(e, 'service-buttons')} className={classes.actionBtn}> Get Started </Button>
               </Grid>
             </Grid>
           </CardMedia>

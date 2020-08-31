@@ -4,12 +4,12 @@ import {Grid, Typography, makeStyles} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   midSection: {
-    height: '40rem',
+    height: '30rem',
     width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: '1rem',
+    paddingTop: '3rem',
     backgroundColor: '#F6F6F6',
     [theme.breakpoints.down('md')]: {
       height: '100%',

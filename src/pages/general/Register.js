@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Grid, Typography, Checkbox, Button, Paper, TextField, makeStyles} from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import {animateScroll} from 'react-scroll';
 
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -81,10 +83,18 @@ const useStyles = makeStyles((theme) => ({
   },
   oAuthBtn: {
     margin: '1rem 0'
+  },
+  alter: {
+    margin: '2rem 0'
   }
 }))
 
 function Register(props) {
+
+  useEffect(()=>{
+    animateScroll.scrollToTop({smooth: "easeInOutQuad"})
+  },[])
+
 
   const classes = useStyles();
 
@@ -93,7 +103,7 @@ function Register(props) {
   }
 
   return (
-      <Grid className={classes.root}>
+      <Grid id='register' className={classes.root}>
         <Grid className={classes.outerGrid}>
           <Grid className={classes.innerGrid}>
             <Paper elevation={3} className={classes.formPaper}>
@@ -144,6 +154,9 @@ function Register(props) {
                   </Grid>
                   <Button color='primary' variant='contained' fullWidth className={classes.submitBtn}> Sign Up </Button>
                 </form>
+              </Grid>
+              <Grid className={classes.alter}>
+                <Typography align='center' variant='body1'> Already have an account? <Link to='/login'> Sign In </Link></Typography>
               </Grid>
               <Grid className={classes.oAuth}>
                 <hr />
