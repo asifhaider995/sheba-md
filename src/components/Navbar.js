@@ -12,6 +12,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import InfoIcon from '@material-ui/icons/Info';
 import HelpIcon from '@material-ui/icons/Help';
 import PeopleIcon from '@material-ui/icons/People';
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 
 import '../index.css';
 import {NavLink} from 'react-router-dom';
@@ -206,6 +207,15 @@ export default function Navbar() {
             >
               <ListItemIcon> <PeopleIcon /> </ListItemIcon>
               <ListItemText>Services</ListItemText>
+            </ListItem>
+          </NavLink>
+          <NavLink exact to='/contact' className={classes.navBtnMobile} activeStyle={{color: '#0B86AC', textDecoration: 'none'}}>
+            <ListItem
+              button
+              onClick={handleDrawerClose}
+            >
+              <ListItemIcon> <ContactMailIcon /> </ListItemIcon>
+              <ListItemText>Contact Us</ListItemText>
             </ListItem>
           </NavLink>
         </List>

@@ -11,10 +11,11 @@ import Service from './pages/general/Service';
 import Login from './pages/general/Login';
 import Register from './pages/general/Register';
 import EmptyPage from './pages/error/EmptyPage';
-
+import ContactSection from './components/home/ContactSection';
 
 import Dashboard from './pages/doctor/Dashboard';
 
+import AdminDash from './pages/mods/Dashboard';
 ////////////////////////// Component Imports //////////////////////////
 
 import Navbar from './components/Navbar';
@@ -30,6 +31,8 @@ function App(props) {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route exact path='/__admin__' component={AdminDash} />
+          <Route exact path='/contact' component={ContactSection} />
           <Route exact path='/about' component={About} />
           <Route exact path='/how-it-works' component={UserDoc} />
           <Route exact path='/services' component={Service} />
