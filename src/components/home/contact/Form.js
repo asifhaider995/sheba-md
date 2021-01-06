@@ -133,10 +133,10 @@ function Contact(props) {
               value={props.values.email}
               onChange={props.handleChange}
               onBlur={props.handleBlur}
-              className={classes.formFields}
-              fullWidth
               helperText={(props.touched.email && props.errors.email) && props.errors.email}
               error={props.touched.email && props.errors.email}
+              className={classes.formFields}
+              fullWidth
               placeholder='Email'
               label="Enter Email"
               variant='outlined'

@@ -3,6 +3,9 @@ import {Grid, Typography, Checkbox, Button, Paper, TextField, makeStyles} from '
 import {Link} from 'react-router-dom';
 import {animateScroll} from 'react-scroll';
 
+import {withFormik} from 'formik';
+import * as Yup from 'yup';
+
 import Logo from '../../assets/Logo.svg';
 
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -110,12 +113,15 @@ function Login(props) {
               </Grid>
               <Typography className={classes.mediaSub}>Sign in</Typography>
               <Grid className={classes.formGrid}>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={props.handleSubmit}>
                   <TextField
                     className={classes.formFields}
                     fullWidth
-                    helperText="What the hell?"
-                    error={true}
+                    value={props.values.email}
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    helperText={(props.touched.email && props.errors.email) && props.errors.email}
+                    error={props.touched.email && props.errors.email}
                     placeholder='Username or Phone'
                     label="Enter Username or Phone"
                     variant='outlined'
@@ -123,8 +129,11 @@ function Login(props) {
                   <TextField
                     className={classes.formFields}
                     fullWidth
-                    helperText="What the hell?"
-                    error={true}
+                    value={props.values.password}
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    helperText={(props.touched.password && props.errors.password) && props.errors.password}
+                    error={props.touched.password && props.errors.password}
                     placeholder='Enter Password'
                     label="Password"
                     variant='outlined'
@@ -151,4 +160,17 @@ function Login(props) {
   )
 }
 
-export default Login;
+export default withFormik({
+  mapPropsToValues: () => ({
+    email: '',
+    password: ''
+  }),
+  validationSchema: Yup.object().shape({
+    email: Yup.string().email("Valid email required").required('Email is required'),
+    password: Yup.string().password().min(10, "Your password is too short").required('Password is required')
+  }),
+  handleSubmit: (values, {setSubmitting}) => {
+    alert("Form submitted");
+    console.log(values)
+  }
+})(Login);
